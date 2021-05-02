@@ -25,9 +25,12 @@ export class TransactionService {
 
   getTansactions(){
     this.http.get<any[]>("https://sj-shop-c9d10-default-rtdb.asia-southeast1.firebasedatabase.app/transaction.json").subscribe(data=>{
-      console.log(data)
-      this.transactions=data
-      this.pushTansactions()
+      // console.log(data)
+      if(data){
+        this.transactions=data
+        if(this.transactions)
+        this.pushTansactions()
+      }
     })
   }
 

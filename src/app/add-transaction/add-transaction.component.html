@@ -22,8 +22,8 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary" >Submit</button>
-            <!-- <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button> -->
+            <!-- <button type="submit" class="btn btn-primary" >Submit</button> -->
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
         </form>
         <h3 *ngIf="message"><span class="text-success">Transaction Added Sucessfully</span></h3>
     </div>
