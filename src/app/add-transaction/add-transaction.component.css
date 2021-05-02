@@ -1,0 +1,13 @@
+.custom-form{
+    border: solid 2px black;
+    padding: 20px; 
+    border-radius: 5px;
+}
+
+    /* .ng-invalid {
+        border: solid 1px red;
+    } */
+
+/* .ng-untouched{
+    border: none    ;
+} */

@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="row m-3">
+        <div class="input-group  offset-md-8">
+            <input type="text" class="form-control" placeholder="Search" [(ngModel)]="search">
+            <div class="input-group-append">
+                <button class="btn btn-outline-success" (click)="filter()" type="button">Search</button>
+                <button class="btn btn-outline-danger" (click)="clear()" type="button">Reset</button>
+            </div>
+        </div>
+    </div>
+    <div class="row table-responsive">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Phone No</th>
+                    <th>Page No.</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+                    <!-- <th><button class="btn btn-success btn-custom" (click)="onClose()">Add</button></th> -->
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let d of filteredTrans">
+                    <td>{{d.id}}</td>
+                    <td>{{d.name}}</td>
+                    <td>{{d.address}}</td>
+                    <td>{{d.mobileNo}}</td>
+                    <td>{{d.pageNo}}</td>
+                    <td><a routerLink='/add/{{d.id}}'><button class="btn btn-outline-success" type="button">Edit</button></a></td>
+                    <td><button class="btn btn-outline-danger" type="button" (click)="delete(d.id)">Delete</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

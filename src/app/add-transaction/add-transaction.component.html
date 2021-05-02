@@ -1,0 +1,31 @@
+<div class="container">
+    <div style=" margin-top: 15vh;">
+        <h2 style="text-align: center;">Add Details</h2>
+        <form class="custom-form" (ngSubmit)="submit(f)" #f='ngForm'>
+            <div class="form-group">
+                <label for="name">Name<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="name" placeholder="Enter name" name="name" [(ngModel)]="name" required>
+                <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+            <div class="form-group">
+                <label for="address">Address<span class="text-danger">*</span></label>
+                <input type="text" class="form-control" id="address" placeholder="Address" name="address" [(ngModel)]="address" required>
+            </div>
+            <div class="row">
+                <div class="form-group col-9">
+                    <label for="pageNo">Mobile No<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="Mobile No" placeholder="Mobile No" name="mobileNo" [(ngModel)]="mobile" required>
+                </div>  
+                <div class="form-group col-3">
+                    <label for="pageNo">PageNo<span class="text-danger">*</span></label>
+                    <input type="number" class="form-control" id="pageNo" placeholder="Page No" name="pageNo" [(ngModel)]="pgNo" required>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary" >Submit</button>
+            <!-- <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button> -->
+        </form>
+        <h3 *ngIf="message"><span class="text-success">Transaction Added Sucessfully</span></h3>
+    </div>
+    <p><span class="text-danger">*</span>Required</p>
+</div>
