@@ -12,7 +12,7 @@ export class TransactionService {
   transactionsChanged=new Subject<any[]>()
 
   addTransaction (dataV:any){
-    const new_id=!this.transactions?0:this.transactions.length
+    const new_id=new Date().getTime()
     console.log(new_id)
     const data={...dataV,id:new_id}
     this.transactions.push(data)

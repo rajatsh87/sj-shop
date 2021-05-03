@@ -17,6 +17,7 @@ export class AddTransactionComponent implements OnInit {
   address:string=""
   mobile:any
   pgNo:any
+  amount:any
   message=false
   constructor(private tService:TransactionService, private route:ActivatedRoute) { }
 
@@ -29,6 +30,7 @@ export class AddTransactionComponent implements OnInit {
       this.address=data.address
       this.mobile=data.mobileNo
       this.pgNo=data.pageNo
+      this.amount=data.amount
     }
   }
 
