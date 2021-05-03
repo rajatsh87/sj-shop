@@ -35,11 +35,15 @@ export class AddTransactionComponent implements OnInit {
   }
 
   submit(formDetails:NgForm){
-    const data=formDetails.form.value
+    let data=formDetails.form.value
     if(!this.id)
       this.tService.addTransaction(data)
     else{
-      this.tService.updateTransaction(data,this.id)
+      // console.log("updated log:",data)
+      data={...data,id:this.id}
+      const pos=this.tService.getPosById(this.id)
+      console.log('pos:',pos)
+      this.tService.updateTransaction(data, pos)
     }
     this.message=true
   }

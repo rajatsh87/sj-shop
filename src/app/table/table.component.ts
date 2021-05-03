@@ -24,14 +24,17 @@ export class TableComponent implements OnInit {
   }
 
   delete(id: any) {
+    console.log("id for deletion=",id)
     this.tSrvice.deleteTransaction(id)
   }
 
   filter() {
     console.log("search:", this.search)
     this.filteredTrans = this.transactions.filter(trans => {
+      const name1=trans.name.toLowerCase();
+      const add=trans.address.toLowerCase();
       const conatct: string = "" + trans.mobileNo
-      if (trans.name.includes(this.search) || trans.address.includes(this.search)
+      if (name1.includes(this.search) || add.includes(this.search)
         || conatct.includes(this.search)) {
           // console.log("vaild for:",trans)
         return true
