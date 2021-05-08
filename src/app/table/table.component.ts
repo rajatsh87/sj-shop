@@ -29,12 +29,13 @@ export class TableComponent implements OnInit {
   }
 
   filter() {
-    console.log("search:", this.search)
     this.filteredTrans = this.transactions.filter(trans => {
       const name1=trans.name.toLowerCase();
       const add=trans.address.toLowerCase();
       const conatct: string = "" + trans.mobileNo
-      if (name1.includes(this.search) || add.includes(this.search)
+      const search1=this.search.toLowerCase();
+      console.log("search:", search1)
+      if (name1.includes(search1) || add.includes(this.search)
         || conatct.includes(this.search)) {
           // console.log("vaild for:",trans)
         return true
