@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { TransactionService } from '../add-transaction.service';
 
+import {Tansaction} from '../../model/transaction.model'
+
 
 @Component({
   selector: 'app-table',
@@ -9,16 +11,17 @@ import { TransactionService } from '../add-transaction.service';
 })
 export class TableComponent implements OnInit {
 
+  toggel:boolean=true
   search: any
-  transactions: any[] = []
+  transactions: Tansaction[] = []
   filteredTrans: any[] = []
+  total:number=0
   constructor(private tSrvice: TransactionService) { }
 
   ngOnInit(): void {
     this.tSrvice.getTansactions()
     this.tSrvice.transactionsChanged.subscribe(newData => {
       this.transactions = newData
-      console.log(newData)
       this.clear()
     })
   }
@@ -29,6 +32,7 @@ export class TableComponent implements OnInit {
   }
 
   filter() {
+    this.toggel=!this.toggel
     this.filteredTrans = this.transactions.filter(trans => {
       const name1=trans.name.toLowerCase();
       const add=trans.address.toLowerCase();
@@ -46,7 +50,15 @@ export class TableComponent implements OnInit {
   }
 
   clear() {
+    this.toggel=!this.toggel
     this.filteredTrans = this.transactions
+    if(this.transactions.length>0){
+      for(let i of this.transactions){
+        const val=+i.amount
+        // console.log(typeof(val),val)
+        this.total=this.total+val
+      }
+    }
   }
 
 }

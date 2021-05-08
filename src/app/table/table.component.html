@@ -32,6 +32,12 @@
                     <td><a routerLink='/add/{{d.id}}'><button class="btn btn-outline-success" type="button">Edit</button></a></td>
                     <td><button class="btn btn-outline-danger" type="button" (click)="delete(d.id)">Delete</button></td>
                 </tr>
+                <tr *ngIf="!toggel">
+                    <td><b>Total-</b></td>
+                    <td></td>
+                    <td></td>
+                    <td><b>{{total}}</b></td>
+                </tr>
             </tbody>
         </table>
     </div>
